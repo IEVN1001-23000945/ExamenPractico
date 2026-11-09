@@ -1,0 +1,153 @@
+
+<div class="max-w-5xl mx-auto my-8 px-4">
+
+  <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+
+    <div class="bg-red-600 px-6 py-5">
+      <h2 class="text-2xl font-bold text-white">
+        Arma tu pizza
+      </h2>
+      <p class="text-red-100 text-sm mt-1">
+        Selecciona el tamaño, los ingredientes y la cantidad.
+      </p>
+    </div>
+
+    <form [formGroup]="formulario" class="p-6">
+
+      <h3 class="text-lg font-bold text-gray-800 mb-4">
+        Selecciona el tamaño
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+
+        <label class="cursor-pointer">
+          <input type="radio" formControlName="tamano"
+                 value="Chica" class="peer sr-only">
+
+          <div class="border-2 border-gray-200 rounded-xl p-5
+                      text-center peer-checked:border-red-600
+                      peer-checked:bg-red-50 transition">
+            <p class="text-lg font-bold text-gray-800">Chica</p>
+            <p class="text-2xl font-bold text-red-600 mt-2">$40</p>
+          </div>
+        </label>
+
+        <label class="cursor-pointer">
+          <input type="radio" formControlName="tamano"
+                 value="Mediana" class="peer sr-only">
+
+          <div class="border-2 border-gray-200 rounded-xl p-5
+                      text-center peer-checked:border-red-600
+                      peer-checked:bg-red-50 transition">
+            <p class="text-lg font-bold text-gray-800">Mediana</p>
+            <p class="text-2xl font-bold text-red-600 mt-2">$80</p>
+          </div>
+        </label>
+
+        <label class="cursor-pointer">
+          <input type="radio" formControlName="tamano"
+                 value="Grande" class="peer sr-only">
+
+          <div class="border-2 border-gray-200 rounded-xl p-5
+                      text-center peer-checked:border-red-600
+                      peer-checked:bg-red-50 transition">
+            <p class="text-lg font-bold text-gray-800">Grande</p>
+            <p class="text-2xl font-bold text-red-600 mt-2">$120</p>
+          </div>
+        </label>
+
+      </div>
+
+      <h3 class="text-lg font-bold text-gray-800 mb-4">
+        Ingredientes adicionales
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+
+        <label class="flex items-center gap-3 p-4 border
+                      border-gray-200 rounded-xl cursor-pointer
+                      hover:bg-red-50 transition">
+          <input type="checkbox" formControlName="jamon"
+                 class="w-5 h-5 accent-red-600">
+          <span class="text-gray-700 font-medium">
+            Jamón (+$10)
+          </span>
+        </label>
+
+        <label class="flex items-center gap-3 p-4 border
+                      border-gray-200 rounded-xl cursor-pointer
+                      hover:bg-red-50 transition">
+          <input type="checkbox" formControlName="pina"
+                 class="w-5 h-5 accent-red-600">
+          <span class="text-gray-700 font-medium">
+            Piña (+$10)
+          </span>
+        </label>
+
+        <label class="flex items-center gap-3 p-4 border
+                      border-gray-200 rounded-xl cursor-pointer
+                      hover:bg-red-50 transition">
+          <input type="checkbox" formControlName="champinones"
+                 class="w-5 h-5 accent-red-600">
+          <span class="text-gray-700 font-medium">
+            Champiñones (+$10)
+          </span>
+        </label>
+
+      </div>
+
+      <div class="mb-8">
+        <label class="block text-lg font-bold text-gray-800 mb-3">
+          Cantidad de pizzas
+        </label>
+
+        <input
+          type="number"
+          formControlName="cantidad"
+          min="1"
+          class="w-32 px-4 py-3 border border-gray-300
+                 rounded-xl focus:outline-none
+                 focus:ring-2 focus:ring-red-500">
+      </div>
+
+      <div class="border-t border-gray-200 pt-6">
+
+        <div class="flex flex-col sm:flex-row
+                    justify-between sm:items-center gap-5">
+
+          <div>
+            <p class="text-sm text-gray-500">Subtotal</p>
+            <p class="text-3xl font-bold text-red-600">
+              ${{ subtotal }}
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+
+            <button
+              type="button"
+              (click)="calcularSubtotal()"
+              class="bg-gray-800 hover:bg-gray-900 text-white
+                     font-semibold px-6 py-3 rounded-xl transition">
+              Calcular subtotal
+            </button>
+
+            <button
+              type="button"
+              (click)="agregarPizza()"
+              class="bg-red-600 hover:bg-red-700 text-white
+                     font-semibold px-6 py-3 rounded-xl
+                     shadow-md transition">
+              Agregar pizza
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
